@@ -32,9 +32,7 @@ return {
       },
     })
 
-    vim.keymap.set('n', '<leader>ee', "<cmd>NvimTreeFindFileToggle<CR>")
-    vim.keymap.set('n', '<leader>ec', "<cmd>NvimTreeCollapse<CR>")
-    vim.keymap.set('n', '<leader>er', "<cmd>NvimTreeRefresh<CR>")
+    vim.keymap.set('n', '<leader>ef', "<cmd>NvimTreeFindFileToggle<CR>", { desc = 'Toggle nvim tree' })
+    vim.keymap.set('n', '<leader>er', "<cmd>NvimTreeRefresh<CR>", { desc = 'Refresh nvim tree' })
   end
-
 }

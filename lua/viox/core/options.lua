@@ -28,3 +28,6 @@ vim.o.timeoutlen = 300 -- the value of timeout length
 vim.o.completeopt = 'menuone,noselect'
 
 vim.o.termguicolors = true -- enables the use of true color in the terminal (for better colors)
+
+-- setting block-only cursor
+vim.cmd('set guicursor=a:block-Cursor')

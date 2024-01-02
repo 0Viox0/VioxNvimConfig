@@ -1,2 +1,2 @@
-require('viox.core.keymaps')
 require('viox.core.options')
+require('viox.core.keymaps')
