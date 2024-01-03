@@ -15,7 +15,7 @@ return {
         if desc then
           desc = 'LSP: ' .. desc
         end
-        
+
         vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
       end
 
@@ -43,7 +43,6 @@ return {
       nmap('<leader>wl', function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
       end, '[W]orkspace [L]ist Folders')
-      
       -- Create a command `:Format` local to the LSP buffer
       vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         vim.lsp.buf.format()
@@ -65,7 +64,6 @@ return {
     -- Add additional capabilities supported by nvim-cmp
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
-    
     -- configure html server
     lspconfig["html"].setup({
       capabilities = capabilities,
