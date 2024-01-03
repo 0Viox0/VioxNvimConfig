@@ -1,9 +1,26 @@
 return {
   "neovim/nvim-lspconfig",
+
   event = { "BufReadPre", "BufNewFile" },
+
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp"
+    "hrsh7th/cmp-nvim-lsp",
+    {
+      "ray-x/lsp_signature.nvim", -- for function argument highlighting
+      -- i dont think i need this because all of the dependencies are lazy loaded
+      -- event = "VeryLazy",
+      opts = {
+        hint_enable = false,
+        handler_opts = {
+          border = "rounded"   -- double, rounded, single, shadow, none, or a table of borders
+        },
+      },
+      config = function(_, opts)
+        require'lsp_signature'.setup(opts)
+      end
+    },
   },
+
   config = function()
     local lspconfig = require("lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -68,34 +85,40 @@ return {
     lspconfig["html"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      require "lsp_signature".on_attach(signature_setup, bufnr),
     })
 
     -- configure css server
     lspconfig["cssls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      require "lsp_signature".on_attach(signature_setup, bufnr),
     })
 
     -- configure typescript server
     lspconfig["tsserver"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      require "lsp_signature".on_attach(signature_setup, bufnr),
     })
 
     -- configure clangd  server
     lspconfig["clangd"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      require "lsp_signature".on_attach(signature_setup, bufnr),
     })
 
     lspconfig["clangd"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      require "lsp_signature".on_attach(signature_setup, bufnr),
     })
 
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      require "lsp_signature".on_attach(signature_setup, bufnr),
       settings = {
         Lua = {
           diagnostics = {
