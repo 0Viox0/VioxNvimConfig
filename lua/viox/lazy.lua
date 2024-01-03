@@ -17,16 +17,17 @@ vim.opt.rtp:prepend(lazypath)
 -- require("lazy").setup("viox.plugins")
 require("lazy").setup({
   {import = "viox.plugins"},
+  {import = "viox.plugins.lsp"},
 }, {
-  install = {
-    colorscheme = { 'onedark' },
-  },
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    enabled = true,
-    notify = false,
-  },
-})
+    install = {
+      colorscheme = { 'onedark' },
+    },
+    checker = {
+      enabled = true,
+      notify = false,
+    },
+    change_detection = {
+      enabled = true,
+      notify = false,
+    },
+  })
