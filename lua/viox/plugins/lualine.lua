@@ -1,10 +1,10 @@
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
-  opts = { 
+  opts = {
     options = {
       icons_enabled = true,
-      theme = 'onedark',
+      theme = 'kanagawa',
       component_separator = '|',
       section_separators = '',
     },

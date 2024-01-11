@@ -10,9 +10,13 @@ return {
       -- i dont think i need this because all of the dependencies are lazy loaded
       -- event = "VeryLazy",
       opts = {
-        hint_enable = false,
+        hint_enable = true,
+        floating_window = false,
+        hint_inline = function() -- can be changed for nvim 0.10
+          return false
+        end,
         handler_opts = {
-          border = "rounded"   -- double, rounded, single, shadow, none, or a table of borders
+          border = "rounded",
         },
       },
       config = function(_, opts)
@@ -65,18 +69,6 @@ return {
         vim.lsp.buf.format()
       end, { desc = 'Format current buffer with LSP' })
     end
-
-    -- document existing key chains
-    require('which-key').register {
-      ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-      ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-      ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-      ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-      ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-      ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-      ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-      ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-    }
 
     -- Add additional capabilities supported by nvim-cmp
     local capabilities = cmp_nvim_lsp.default_capabilities()

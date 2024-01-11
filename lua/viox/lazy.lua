@@ -20,7 +20,7 @@ require("lazy").setup({
   {import = "viox.plugins.lsp"},
 }, {
     install = {
-      colorscheme = { 'onedark' },
+      colorscheme = { 'kanagawa' },
     },
     checker = {
       enabled = true,
