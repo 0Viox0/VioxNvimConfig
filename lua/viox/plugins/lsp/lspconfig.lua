@@ -77,21 +77,24 @@ return {
     lspconfig["html"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      require "lsp_signature".on_attach(signature_setup, bufnr),
     })
 
     -- configure css server
     lspconfig["cssls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      require "lsp_signature".on_attach(signature_setup, bufnr),
+    })
+
+    lspconfig["omnisharp"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      cmd = { "/home/viox/.local/share/nvim/mason/packages/omnisharp/omnisharp" },
     })
 
     -- configure typescript server
     lspconfig["tsserver"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      require "lsp_signature".on_attach(signature_setup, bufnr),
     })
 
     lspconfig["emmet_ls"].setup({
