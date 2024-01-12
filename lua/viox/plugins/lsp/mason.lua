@@ -24,6 +24,7 @@ return {
         "cssls",
         "lua_ls",
         "clangd",
+        "emmet_ls",
       },
       automatic_installation = true,
     })

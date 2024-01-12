@@ -94,13 +94,16 @@ return {
       require "lsp_signature".on_attach(signature_setup, bufnr),
     })
 
-    -- configure clangd  server
-    lspconfig["clangd"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      require "lsp_signature".on_attach(signature_setup, bufnr),
+    lspconfig["emmet_ls"].setup({
+      capabilities = capabilities;
+      on_attach = on_attach;
+      filetypes = {
+        "css", "eruby", "html", "javascript", "javascriptreact",
+        "less", "sass", "scss", "svelte", "pug",
+        "typescriptreact", "vue" }
     })
 
+    -- configure clangd  server
     lspconfig["clangd"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
