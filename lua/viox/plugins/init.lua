@@ -6,4 +6,6 @@ return {
     -- auto indentation plugin
     "tpope/vim-sleuth",
     "christoomey/vim-tmux-navigator",
+    -- ~/.config/nvim/ftplugin/java.lua for configuration
+    "mfussenegger/nvim-jdtls",
 }

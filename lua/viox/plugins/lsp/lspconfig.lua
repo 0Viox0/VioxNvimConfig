@@ -114,15 +114,18 @@ return {
             on_attach = on_attach,
         })
 
-        lspconfig["jdtls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
+        -- search tags [ java, javalsp, jdtls ]
+        -- we use (nvim-jdtls)
 
         lspconfig["omnisharp"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
             cmd = { "/home/viox/.local/share/nvim/mason/packages/omnisharp/omnisharp" },
+        })
+
+        lspconfig["lemminx"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
         })
 
         -- configure clangd  server
