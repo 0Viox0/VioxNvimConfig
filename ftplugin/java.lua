@@ -12,7 +12,7 @@ end
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = vim.fn.stdpath("data") .. "/site/java/workspace-root/" .. project_name
-os.execute("mkdir " .. workspace_dir)
+-- os.execute("mkdir " .. workspace_dir)
 
 -- Main Config
 local config = {

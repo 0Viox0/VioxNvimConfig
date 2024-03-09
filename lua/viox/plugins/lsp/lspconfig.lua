@@ -128,6 +128,11 @@ return {
             on_attach = on_attach,
         })
 
+        lspconfig["bashls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
         -- configure clangd  server
         lspconfig["clangd"].setup({
             capabilities = capabilities,

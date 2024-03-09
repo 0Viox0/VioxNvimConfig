@@ -20,7 +20,7 @@ return {
             ui.nav_file(4)
         end)
         vim.keymap.set("n", "<a-t>", function()
-            ui.nav_file(4)
+            ui.nav_file(5)
         end)
 
         vim.cmd("highlight! HarpoonInactive guibg=NONE guifg=#63698c")
