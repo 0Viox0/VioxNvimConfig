@@ -15,6 +15,7 @@ return {
                 json = { "prettier" },
                 lua = { "stylua" },
                 cs = { "csharpier" },
+                cpp = { "clang-format" },
             },
             format_on_save = {
                 -- These options will be passed to conform.format()
