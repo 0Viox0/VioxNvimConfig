@@ -25,6 +25,10 @@ return {
                 "lua_ls",
                 "clangd",
                 "emmet_ls",
+                "bashls",
+                "lemminx",
+                "omnisharp",
+                "tailwindcss",
             },
             automatic_installation = true,
         })

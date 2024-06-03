@@ -1,15 +1,3 @@
-[colors.cursor]
-cursor = "0xC5C8C6"
-text = "0x1D1F21"
-
-[colors.primary]
-background = "0x1D1F21"
-foreground = "0xC5C8C6"
-
-[colors.selection]
-background = "0xC5C8C6"
-text = "0x1D1F21"
-
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
