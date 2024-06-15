@@ -3,7 +3,7 @@ return {
     branch = "0.1.x",
 
     dependencies = {
-        "nvim-lua/plenary.nvim", -- some lua function that telescope needs
+        "nvim-lua/plenary.nvim",                                        -- some lua function that telescope needs
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- algorithms on c (for performance)
         "nvim-tree/nvim-web-devicons",
     },

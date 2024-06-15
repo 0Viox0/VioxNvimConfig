@@ -3,10 +3,11 @@
 ### How to install everything needed for nvim:
 
 - make sure g++, gcc or any other cpp compiler is installed
-- install fzf
+- install [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#installation)
+- install [ripgrep](https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation)
 - install node, npm
 - install .NET SDK
-- (optional) install base devel
+- (optional) install base devel package
 
 ### Alacritty:
 

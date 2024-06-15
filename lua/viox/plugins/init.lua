@@ -8,4 +8,6 @@ return {
     "christoomey/vim-tmux-navigator",
     -- ~/.config/nvim/ftplugin/java.lua for configuration
     "mfussenegger/nvim-jdtls",
+
+    "Hoffs/omnisharp-extended-lsp.nvim",
 }

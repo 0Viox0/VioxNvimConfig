@@ -1,9 +1,6 @@
 return {
-
     "neovim/nvim-lspconfig",
-
     event = { "BufReadPre", "BufNewFile" },
-
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         {
@@ -121,7 +118,12 @@ return {
         lspconfig["omnisharp"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
-            cmd = { "/home/viox/.local/share/nvim/mason/packages/omnisharp/omnisharp" },
+            cmd = {
+                "/home/viox/.local/share/nvim/mason/bin/omnisharp",
+                "--languageserver",
+                "--hostPID", tostring(vim.fn.getpid()),
+                "--loglevel", "trace"
+            },
         })
 
         lspconfig["lemminx"].setup({
