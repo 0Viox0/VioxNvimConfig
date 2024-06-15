@@ -26,7 +26,7 @@
 - ```sh
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm/
     ```
-- then enter tmux: ```sh tmux``` and press <kbd>Ctrl</kbd>+<kbd>A</kdb>+<kbd>I</kbd> to install plugins
+- then enter tmux: ```sh tmux``` and press <kbd>Ctrl</kbd>+<kbd>A</kbd>+<kbd>I</kbd> to install plugins
 
 ### Additional info:
 
