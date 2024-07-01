@@ -17,3 +17,11 @@ y = 0
 
 [mouse]
 hide_when_typing = true
+
+[shell]
+program = "/bin/zsh"
+args = ["-l"]
+
+[[keyboard.bindings]]
+key = "F11"
+action = "ToggleFullscreen"
