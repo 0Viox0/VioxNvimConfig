@@ -1,5 +1,14 @@
 # Viox config
 
+#### There is a script called installEverythingForUbuntu.sh which can help you install all of the dependencies
+
+* Get the script 
+```wget https://github.com/0Viox0/VioxNvimConfig/installEverythingForUbuntu.sh```
+* Chmod it
+```chmod u+x installEverythingForUbuntu.sh```
+* And run it as root
+```sudo ./installEverythingForUbuntu.sh```
+
 ### How to install everything needed for nvim:
 
 - make sure g++, gcc or any other cpp compiler is installed
@@ -23,10 +32,10 @@
 ### Tmux:
 
 - put .tmux.conf in ~/
-- ```sh
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm/
+- ```sh 
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm/
     ```
-- then enter tmux: ```sh tmux``` and press <kbd>Ctrl</kbd>+<kbd>A</kbd>+<kbd>I</kbd> to install plugins
+- then enter tmux in the terminal: ```tmux``` and press <kbd>Ctrl</kbd>+<kbd>A</kbd>+<kbd>I</kbd> to install plugins
 
 ### Additional info:
 
