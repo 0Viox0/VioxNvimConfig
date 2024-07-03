@@ -6,8 +6,8 @@
 ```wget https://github.com/0Viox0/VioxNvimConfig/blob/master/installEverythingForUbuntu.sh```
 * Chmod it
 ```chmod u+x installEverythingForUbuntu.sh```
-* And run it as root
-```sudo ./installEverythingForUbuntu.sh```
+* And run it
+```./installEverythingForUbuntu.sh```
 
 ### How to install everything needed for nvim:
 
@@ -20,17 +20,19 @@
 
 ### Alacritty:
 
+- install alacritty ```sudo snap install alacritty --classic```
 - put alacritty.toml in ~/.config/alacritty/
 - make it default terminal emulator
 - install JetBrains Nerd font
 
 ### Zsh:
 
+- install [oh-my-zsh](https://ohmyz.sh/#install)
 - put .zshrc in ~/
-- install oh-my-zsh
 
 ### Tmux:
 
+- install tmux: ```sudo apt install tmux```
 - put .tmux.conf in ~/
 - ```sh 
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm/

@@ -1,20 +1,24 @@
 #!/bin/bash
 
 # :)
-apt update
-apt upgrade
+sudo apt update
+sudo apt upgrade
 
 # installing all of the needed packages for development
-apt install build-essential
+sudo apt install build-essential
 
 # installing git
-apt install git
+sudo apt install git
 
 # installing node and npm
-apt install nodejs npm
+sudo apt install nodejs npm
 
 # installing Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# adding to the PATH
+(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/viox/.bashrc
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # installilng fzf and ripgrep
 brew install fzf
@@ -27,3 +31,6 @@ unzip JetBrainsMono.zip -d JetBrainsMono
 mkdir -p ~/.local/share/fonts
 mv JetBrainsMono/*.ttf ~/.local/share/fonts/
 fc-cache -fv
+
+rm -rf JetBrainsMono
+rm -rf JetBrainsMono.zip
