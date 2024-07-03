@@ -3,6 +3,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
+        "Hoffs/omnisharp-extended-lsp.nvim",
         {
             "ray-x/lsp_signature.nvim", -- for function argument highlighting
             -- i dont think i need this because all of the dependencies are lazy loaded
@@ -27,7 +28,7 @@ return {
         local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-        local on_attach = function(_, bufnr)
+        local on_attach = function(client, bufnr)
             -- function for easier remapping
             local nmap = function(keys, func, desc)
                 if desc then
@@ -42,11 +43,30 @@ return {
             nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
             nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
-            nmap("gd", telBuit.lsp_definitions, "[G]oto [D]efinition")
-            nmap("gr", telBuit.lsp_references, "[G]oto [R]eferences")
-            nmap("gI", telBuit.lsp_implementations, "[G]oto [I]mplementation")
+            -- if omnisharp is the lsp we use
+            -- then we use omnisharp_extended
+            -- else we use regular telescope configuration
 
-            nmap("<leader>D", telBuit.lsp_type_definitions, "Type [D]efinition")
+            if (client.name == "omnisharp") then
+                vim.api.nvim_set_keymap('n', 'gr',
+                    '<cmd>lua require("omnisharp_extended").telescope_lsp_references()<cr>',
+                    { noremap = true, silent = true })
+                vim.api.nvim_set_keymap('n', 'gd',
+                    '<cmd>lua require("omnisharp_extended").telescope_lsp_definition()<cr>',
+                    { noremap = true, silent = true })
+                vim.api.nvim_set_keymap('n', '<leader>D',
+                    '<cmd>lua require("omnisharp_extended").telescope_lsp_type_definition()<cr>',
+                    { noremap = true, silent = true })
+                vim.api.nvim_set_keymap('n', 'gI',
+                    '<cmd>lua require("omnisharp_extended").telescope_lsp_implementation()<cr>',
+                    { noremap = true, silent = true })
+            else
+                nmap("gd", telBuit.lsp_definitions, "[G]oto [D]efinition")
+                nmap("gr", telBuit.lsp_references, "[G]oto [R]eferences")
+                nmap("gI", telBuit.lsp_implementations, "[G]oto [I]mplementation")
+                nmap("<leader>D", telBuit.lsp_type_definitions, "Type [D]efinition")
+            end
+
             nmap("<leader>ds", telBuit.lsp_document_symbols, "[D]ocument [S]ymbols")
             nmap("<leader>ws", telBuit.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
