@@ -3,7 +3,7 @@
 #### There is a script called installEverythingForUbuntu.sh which can help you install all of the dependencies
 
 * Get the script 
-```wget https://github.com/0Viox0/VioxNvimConfig/blob/master/installEverythingForUbuntu.sh```
+```wget https://raw.githubusercontent.com/0Viox0/VioxNvimConfig/refs/heads/master/installEverythingForUbuntu.sh```
 * Chmod it
 ```chmod u+x installEverythingForUbuntu.sh```
 * And run it
