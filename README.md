@@ -15,7 +15,6 @@
 - install [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#installation)
 - install [ripgrep](https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation)
 - install node, npm
-- install .NET SDK
 - (optional) install base devel package
 
 ### Alacritty:
@@ -41,4 +40,6 @@
 
 ### Additional info:
 
-if you would like to install java, then you would want to look at ftplugin/java.lua to know where to install all java stuff
+* if you would like to install java, then you would want to look at ftplugin/java.lua to know where to install all java stuff
+
+* there is support for .net, but you need .net sdk and onmisharp lsp

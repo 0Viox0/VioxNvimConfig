@@ -39,3 +39,14 @@ autocmd!
 au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=200})
 augroup END
 ]])
+
+-- setting up vim diagnostic config
+vim.diagnostic.config({
+    virtual_text = {
+        spacing = 2,
+        prefix = "●",
+    },
+    underline = false,
+    update_in_insert = true,
+    severity_sort = true,
+})

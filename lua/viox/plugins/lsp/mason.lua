@@ -19,15 +19,16 @@ return {
 
         mason_lspconfig.setup({
             ensure_installed = {
-                "tsserver",
+                "ts_ls",
                 "html",
                 "cssls",
+                "somesass_ls",
                 "lua_ls",
                 "clangd",
                 "emmet_ls",
                 "bashls",
                 "lemminx",
-                "omnisharp",
+                -- "omnisharp", -- enable it if you need it (there is lsp rule for go to definition)
                 "tailwindcss",
             },
             automatic_installation = true,

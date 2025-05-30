@@ -3,9 +3,9 @@ return {
 	event = "InsertEnter",
 	dependencies = {
 		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path", -- for path autocompletion
+		"hrsh7th/cmp-path",   -- for path autocompletion
 
-		"L3MON4D3/LuaSnip", -- snippet engine
+		"L3MON4D3/LuaSnip",   -- snippet engine
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 
 		-- just a buch of usefull autocompletions for different languages

@@ -28,6 +28,7 @@ return {
         local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
+
         local on_attach = function(client, bufnr)
             -- function for easier remapping
             local nmap = function(keys, func, desc)
@@ -44,29 +45,29 @@ return {
             nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
             -- if omnisharp is the lsp we use
-            -- then we use omnisharp_extended
+            -- then we add some options with omnisharp_extended
             -- else we use regular telescope configuration
 
             if (client.name == "omnisharp") then
-                vim.api.nvim_set_keymap('n', 'gr',
-                    '<cmd>lua require("omnisharp_extended").telescope_lsp_references()<cr>',
-                    { noremap = true, silent = true })
-                vim.api.nvim_set_keymap('n', 'gd',
+                -- vim.api.nvim_set_keymap('n', 'gr',
+                --     '<cmd>lua require("omnisharp_extended").telescope_lsp_references()<cr>',
+                --     { noremap = true, silent = true })
+                vim.api.nvim_set_keymap('n', 'gn',
                     '<cmd>lua require("omnisharp_extended").telescope_lsp_definition()<cr>',
                     { noremap = true, silent = true })
-                vim.api.nvim_set_keymap('n', '<leader>D',
-                    '<cmd>lua require("omnisharp_extended").telescope_lsp_type_definition()<cr>',
-                    { noremap = true, silent = true })
-                vim.api.nvim_set_keymap('n', 'gI',
-                    '<cmd>lua require("omnisharp_extended").telescope_lsp_implementation()<cr>',
-                    { noremap = true, silent = true })
-            else
-                nmap("gd", telBuit.lsp_definitions, "[G]oto [D]efinition")
-                nmap("gr", telBuit.lsp_references, "[G]oto [R]eferences")
-                nmap("gI", telBuit.lsp_implementations, "[G]oto [I]mplementation")
-                nmap("<leader>D", telBuit.lsp_type_definitions, "Type [D]efinition")
+                -- vim.api.nvim_set_keymap('n', '<leader>D',
+                --     '<cmd>lua require("omnisharp_extended").telescope_lsp_type_definition()<cr>',
+                --     { noremap = true, silent = true })
+                -- vim.api.nvim_set_keymap('n', 'gI',
+                --     '<cmd>lua require("omnisharp_extended").telescope_lsp_implementation()<cr>',
+                --     { noremap = true, silent = true })
             end
 
+            nmap("gd", telBuit.lsp_definitions, "[G]oto [D]efinition")
+            nmap("gr", telBuit.lsp_references, "[G]oto [R]eferences")
+            nmap("gI", telBuit.lsp_implementations, "[G]oto [I]mplementation")
+
+            nmap("<leader>D", telBuit.lsp_type_definitions, "Type [D]efinition")
             nmap("<leader>ds", telBuit.lsp_document_symbols, "[D]ocument [S]ymbols")
             nmap("<leader>ws", telBuit.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
@@ -97,13 +98,19 @@ return {
         })
 
         -- configure typescript server
-        lspconfig["tsserver"].setup({
+        lspconfig["ts_ls"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
         })
 
         -- configure css server
         lspconfig["cssls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
+        -- somesass_ls
+        lspconfig["somesass_ls"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
         })
@@ -117,9 +124,9 @@ return {
                 "html",
                 "javascript",
                 "javascriptreact",
-                "less",
-                "sass",
-                "scss",
+                -- "less",
+                -- "sass",
+                -- "scss",
                 "svelte",
                 "pug",
                 "typescriptreact",
@@ -152,6 +159,12 @@ return {
         })
 
         lspconfig["bashls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
+        -- python lsp
+        lspconfig["basedpyright"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
         })
