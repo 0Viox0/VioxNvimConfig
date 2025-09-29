@@ -18,10 +18,13 @@ y = 0
 [mouse]
 hide_when_typing = true
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 args = ["-l"]
 
 [[keyboard.bindings]]
 key = "F11"
 action = "ToggleFullscreen"
+
+[env]
+TERM = "xterm-256color"

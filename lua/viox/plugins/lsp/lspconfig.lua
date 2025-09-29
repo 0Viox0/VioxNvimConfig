@@ -28,7 +28,6 @@ return {
         local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-
         local on_attach = function(client, bufnr)
             -- function for easier remapping
             local nmap = function(keys, func, desc)
@@ -48,13 +47,16 @@ return {
             -- then we add some options with omnisharp_extended
             -- else we use regular telescope configuration
 
-            if (client.name == "omnisharp") then
+            if client.name == "omnisharp" then
                 -- vim.api.nvim_set_keymap('n', 'gr',
                 --     '<cmd>lua require("omnisharp_extended").telescope_lsp_references()<cr>',
                 --     { noremap = true, silent = true })
-                vim.api.nvim_set_keymap('n', 'gn',
+                vim.api.nvim_set_keymap(
+                    "n",
+                    "gn",
                     '<cmd>lua require("omnisharp_extended").telescope_lsp_definition()<cr>',
-                    { noremap = true, silent = true })
+                    { noremap = true, silent = true }
+                )
                 -- vim.api.nvim_set_keymap('n', '<leader>D',
                 --     '<cmd>lua require("omnisharp_extended").telescope_lsp_type_definition()<cr>',
                 --     { noremap = true, silent = true })
@@ -139,6 +141,13 @@ return {
             on_attach = on_attach,
         })
 
+        -- configure ansible language server
+        lspconfig["ansiblels"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            filetypes = { "yaml.ansible", "yaml", "yml" },
+        })
+
         -- search tags [ java, javalsp, jdtls ]
         -- we use (nvim-jdtls)
 
@@ -148,8 +157,10 @@ return {
             cmd = {
                 "/home/viox/.local/share/nvim/mason/bin/omnisharp",
                 "--languageserver",
-                "--hostPID", tostring(vim.fn.getpid()),
-                "--loglevel", "trace"
+                "--hostPID",
+                tostring(vim.fn.getpid()),
+                "--loglevel",
+                "trace",
             },
         })
 
